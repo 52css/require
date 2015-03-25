@@ -8,35 +8,24 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta content="telephone=no" name="format-detection">
   <script src="js/lib/require.js"></script>
-  <script>
-    /**
-     * 测试直接运行
-     */
-    require(function() {
-//      alert('dom-ready');
-    });
-    require(function() {
-//      var div = document.createElement('div');
-//      div.innerHTML = 'Created Div.';
-//      document.body.appendChild(div);
-    });
-//    require.config({
-//      base: '/js/lib/'
-//    });
-    define('test8', function() {
-      return {
-        test: function() {
-          return '├test8';
-        }
-      };
-    });
-    require('test8', function(test8) {
-      var pre = document.createElement('pre');
-      pre.innerHTML = test8.test().replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
-      document.body.appendChild(pre);
-    });
-  </script>
 </head>
 <body>
+<script>
+  /**
+   * 测试直接运行
+   */
+  define('test8', function() {
+    return {
+      test: function() {
+        return '├test8';
+      }
+    };
+  });
+  require('test8', function(test8) {
+    var pre = document.createElement('pre');
+    pre.innerHTML = test8.test().replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    document.body.appendChild(pre);
+  });
+</script>
 </body>
 </html>
