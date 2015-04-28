@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><meta charset=UTF-8><title></title></head><body><script src=js/lib/require.js></script><script>
+  /**
+   * 测试define没有定义名称 + define有名称 + 多个依赖
+   * e -- c -- b -- a
+   *   -- d -- b -- a
+   */
+  require.config({
+    base: 'js/require/file/',
+    alias: {
+      'jquery': '../../lib/jquery'
+    }
+  })
+//  require('e', function(e) {
+//    var pre = document.createElement('pre');
+//    pre.innerHTML = e.test();
+//    document.body.appendChild(pre);
+//  });
+//  require('f', function(f) {
+//    var pre = document.createElement('pre');
+//    pre.innerHTML = f.test();
+//    document.body.appendChild(pre);
+//  });
+//  require('jquery', function($) {
+//    if ($ && $.fn && $.fn.jquery) {
+//      var pre = document.createElement('pre');
+//      pre.innerHTML = '├jquery';
+//      document.body.appendChild(pre);
+//    }
+//  });
+
+  // 循序显示
+  require(['e', 'f', 'jquery'], function(e, f, $) {
+    var pre = document.createElement('pre');
+    pre.innerHTML = (e.test() + '\n' + f.test() + '\n' + ($ && $.fn && $.fn.jquery ? '├jquery' : '')).replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    document.body.appendChild(pre);
+  });
+</script></body></html>

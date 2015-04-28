@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><meta charset=UTF-8><title></title><link rel=stylesheet href=css/css.css></head><body><script src=js/lib/mass.js></script><script>
+  /**
+   * 测试多个define没有定义名称
+   */
+  require(['../require/a','../require/file/a'], function(a) {
+    var pre = document.createElement('pre');
+    pre.innerHTML = a.test().replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    document.body.appendChild(pre);
+  });
+
+  /**
+   * 测试2次定义不同的require
+   */
+
+  require(['../require/a'], function(a) {
+    var pre = document.createElement('pre');
+    pre.innerHTML = a.test().replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    document.body.appendChild(pre);
+  });
+  require(['../require/file/a'], function(a) {
+    var pre = document.createElement('pre');
+    pre.innerHTML = (a.test()).replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    document.body.appendChild(pre);
+  });
+
+</script></body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta charset=UTF-8><title></title><meta http-equiv=Content-Type content="text/html;charset=UTF-8"><meta name=viewport content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"><meta name=apple-mobile-web-app-capable content=yes><meta content="telephone=no" name=format-detection><script src=js/lib/require.js></script></head><body><script>
+  /**
+   * 测试直接运行
+   */
+  define('test8', function() {
+    return {
+      test: function() {
+        return '├test8';
+      }
+    };
+  });
+  require('test8', function(test8) {
+    var pre = document.createElement('pre');
+    pre.innerHTML = test8.test().replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    document.body.appendChild(pre);
+  });
+</script></body></html>
